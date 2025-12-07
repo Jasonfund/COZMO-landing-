@@ -1,47 +1,33 @@
-// === MOBILE HAMBURGER ===
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+// Mobile menu
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
 
-hamburger.addEventListener('click', () => {
-  navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+hamburger.addEventListener("click", () => {
+    mobileMenu.style.display =
+        mobileMenu.style.display === "flex" ? "none" : "flex";
 });
 
-// === CALCULATOR ===
-const salarySlider = document.getElementById('salary-slider');
-const liabilitiesSlider = document.getElementById('liabilities-slider');
-const obligationsSlider = document.getElementById('obligations-slider');
 
-const salaryValue = document.getElementById('salary-value');
-const liabilitiesValue = document.getElementById('liabilities-value');
-const obligationsValue = document.getElementById('obligations-value');
+// DBR CALCULATOR
+const salary = document.getElementById("salary");
+const liabilities = document.getElementById("liabilities");
+const meterFill = document.getElementById("meterFill");
+const dbrResult = document.getElementById("dbrResult");
 
-const calcText = document.getElementById('calc-text');
-const needle = document.getElementById('needle');
+function updateDBR() {
+    let sal = Number(salary.value);
+    let lib = Number(liabilities.value);
 
-function updateCalculator() {
-  const salary = parseInt(salarySlider.value);
-  const liabilities = parseInt(liabilitiesSlider.value);
-  const obligations = parseInt(obligationsSlider.value);
+    let dbr = Math.round((lib / sal) * 100);
 
-  salaryValue.textContent = salary;
-  liabilitiesValue.textContent = liabilities;
-  obligationsValue.textContent = obligations;
+    if (dbr > 100) dbr = 100;
+    if (dbr < 0) dbr = 0;
 
-  // DBR calculation: (Liabilities + Obligations) / Salary * 100
-  let dbr = ((liabilities + obligations) / salary) * 100;
-  if (dbr > 100) dbr = 100;
-
-  const approval = dbr <= 50 ? "Yes" : "Maybe";
-
-  calcText.textContent = `Estimated DBR: ${dbr.toFixed(1)}% · Likely Approval: ${approval}`;
-
-  // Animate needle
-  needle.style.width = `${dbr}%`;
+    meterFill.style.width = dbr + "%";
+    dbrResult.textContent = "DBR: " + dbr + "%";
 }
 
-salarySlider.addEventListener('input', updateCalculator);
-liabilitiesSlider.addEventListener('input', updateCalculator);
-obligationsSlider.addEventListener('input', updateCalculator);
+salary.oninput = updateDBR;
+liabilities.oninput = updateDBR;
 
-// initialize
-updateCalculator();
+updateDBR();
