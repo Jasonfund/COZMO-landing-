@@ -14,14 +14,14 @@
     <div class="container header-inner">
       <div class="brand">
         <img src="assets/logo.png" alt="COZMO logo" class="logo" />
-        <span class="visually-hidden">COZMO FINANCIAL CONSULTING</span>
       </div>
-      <nav class="nav">
+      <nav class="nav" id="nav-menu">
         <a href="#services" class="nav-link">Services</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#cases" class="nav-link">Success Stories</a>
-        <a href="#review-form" class="btn btn-outline">Get My Free Review</a>
+        <a href="#review-form" class="btn btn-outline header-btn">Get My Free Review</a>
       </nav>
+      <div class="hamburger" id="hamburger">&#9776;</div>
     </div>
   </header>
 
@@ -38,25 +38,13 @@
         </div>
         <p class="microcopy">WhatsApp support available.</p>
       </div>
-      <div class="hero-right" aria-hidden="true">
-        <div class="flat-illustration" role="img" aria-label="Flat vector illustration of finance documents and coins"></div>
-      </div>
     </div>
   </section>
 
   <!-- TRUST BAR -->
-  <section class="trust-bar" aria-hidden="false">
-    <div class="container trust-inner">
-      <div class="bank-placeholders" aria-hidden="true">
-        <span class="bank">[Bank A]</span>
-        <span class="bank">[Bank B]</span>
-        <span class="bank">[Bank C]</span>
-        <span class="bank">[Bank D]</span>
-      </div>
-      <div class="trust-text">
-        Trusted channel partners to leading UAE banks — ★★★★★
-      </div>
-    </div>
+  <section class="trust-bar container" aria-hidden="false">
+    <p class="trust-text">Trusted channel partners to leading UAE banks — ★★★★★</p>
+    <img src="assets/banks.png" alt="Trusted UAE Banks" class="banks-img" />
   </section>
 
   <!-- HOW IT WORKS -->
@@ -64,22 +52,19 @@
     <h2>How it works</h2>
     <div class="steps-grid" role="list">
       <article class="step" role="listitem">
-        <div class="icon doc"></div>
         <h3>Profile Review</h3>
         <p>We review your documents and eligibility quickly.</p>
-        <a href="#review-form" class="micro-cta">Start Step 1</a>
+        <a href="#review-form" class="step-link">Start Step 1</a>
       </article>
       <article class="step" role="listitem">
-        <div class="icon match"></div>
         <h3>Bank Match</h3>
         <p>We match you to the right bank and product.</p>
-        <a href="#review-form" class="micro-cta">Start Step 1</a>
+        <a href="#review-form" class="step-link">Start Step 2</a>
       </article>
       <article class="step" role="listitem">
-        <div class="icon rocket"></div>
         <h3>Approval Guidance</h3>
         <p>Support through the approval process and documentation.</p>
-        <a href="#review-form" class="micro-cta">Start Step 1</a>
+        <a href="#review-form" class="step-link">Start Step 3</a>
       </article>
     </div>
   </section>
@@ -91,32 +76,32 @@
       <article class="service-card">
         <h4>Personal Loan Assistance</h4>
         <p>Highest approval path, fastest processing.</p>
-        <a href="#review-form" class="link-to-form">Review My Profile</a>
+        <a href="#review-form" class="service-link">Review My Profile</a>
       </article>
       <article class="service-card">
         <h4>Credit Card Approvals</h4>
         <p>Premium cards, higher limits, better rewards.</p>
-        <a href="#review-form" class="link-to-form">Review My Profile</a>
+        <a href="#review-form" class="service-link">Review My Profile</a>
       </article>
       <article class="service-card">
         <h4>Car Loan / Auto Finance</h4>
         <p>New &amp; used vehicles, self-employed friendly.</p>
-        <a href="#review-form" class="link-to-form">Review My Profile</a>
+        <a href="#review-form" class="service-link">Review My Profile</a>
       </article>
       <article class="service-card">
         <h4>Home Loan Advisory</h4>
         <p>Mortgage pre-checks, bank comparisons.</p>
-        <a href="#review-form" class="link-to-form">Review My Profile</a>
+        <a href="#review-form" class="service-link">Review My Profile</a>
       </article>
       <article class="service-card">
         <h4>Business &amp; SME Finance</h4>
         <p>Working capital, equipment finance.</p>
-        <a href="#review-form" class="link-to-form">Review My Profile</a>
+        <a href="#review-form" class="service-link">Review My Profile</a>
       </article>
       <article class="service-card">
         <h4>Debt Restructuring &amp; Top-ups</h4>
         <p>Consolidate &amp; reduce monthly payments.</p>
-        <a href="#review-form" class="link-to-form">Review My Profile</a>
+        <a href="#review-form" class="service-link">Review My Profile</a>
       </article>
     </div>
   </section>
@@ -124,39 +109,35 @@
   <!-- CALCULATOR -->
   <section id="calculator" class="calculator container" aria-labelledby="calc-heading">
     <h2 id="calc-heading">DBR & Eligibility Calculator</h2>
-    <form id="calc-form" class="calc-form" onsubmit="return false;">
+    <div class="calc-panel">
       <label>
         Monthly Salary (AED)
-        <input id="salary" type="number" min="0" placeholder="e.g., 10000" required />
+        <input type="range" min="0" max="50000" value="10000" id="salary-slider">
+        <span id="salary-value">10000</span>
       </label>
       <label>
-        Monthly Liabilities (existing loan installments) (AED)
-        <input id="liabilities" type="number" min="0" placeholder="e.g., 2000" required />
+        Monthly Liabilities (AED)
+        <input type="range" min="0" max="50000" value="5000" id="liabilities-slider">
+        <span id="liabilities-value">5000</span>
       </label>
       <label>
-        Monthly Obligations (credit card min payments, rent, etc.) (AED)
-        <input id="obligations" type="number" min="0" placeholder="e.g., 1000" required />
+        Monthly Obligations (AED)
+        <input type="range" min="0" max="20000" value="2000" id="obligations-slider">
+        <span id="obligations-value">2000</span>
       </label>
-
-      <div class="calc-actions">
-        <button id="calc-run" class="btn btn-primary">Calculate</button>
-        <div class="gauge" aria-hidden="true">
-          <div class="needle" id="gauge-needle"></div>
+      <div class="calc-result">
+        <div id="calc-meter">
+          <div id="needle"></div>
         </div>
+        <p id="calc-text">Estimated DBR: —% · Likely Approval: —</p>
       </div>
-
-      <div id="calc-result" class="calc-result" aria-live="polite">
-        Estimated DBR: —% · Likely Approval: —
-      </div>
-    </form>
-    <p class="note"><strong>Note:</strong> This is an estimate. Final approval depends on bank checks and documents.</p>
+    </div>
   </section>
 
-  <!-- WHY COZMO -->
+  <!-- ABOUT COZMO -->
   <section id="about" class="about container">
     <h2>About COZMO</h2>
     <p>COZMO FINANCIAL CONSULTING is a UAE-based financial solutions partner helping residents secure the right personal, business, and lifestyle financing. Our mission is to make the loan process transparent, fast, and stress-free. We work directly with top UAE banks, providing honest guidance and maximum approval opportunities — with <strong>zero fees, always</strong>.</p>
-
     <div class="three-cols">
       <div><h4>CHANNEL PARTNERS</h4><p>Access across multiple UAE banks.</p></div>
       <div><h4>ZERO FEES</h4><p>Free for all customers, no charges ever.</p></div>
@@ -183,44 +164,23 @@
     </div>
   </section>
 
-  <!-- REVIEW / CONTACT FORM -->
+  <!-- REVIEW FORM -->
   <section id="review-form" class="review container" aria-labelledby="review-heading">
     <h2 id="review-heading">Get Your Free Profile Review</h2>
     <form id="lead-form" class="lead-form" enctype="multipart/form-data">
-      <label>
-        Full name
-        <input name="name" required />
-      </label>
-      <label>
-        WhatsApp / Phone
-        <input name="phone" required />
-      </label>
-      <label>
-        Monthly Salary (AED)
-        <input name="salary" type="number" required />
-      </label>
-      <label>
-        Company
-        <input name="company" />
-      </label>
-      <label>
-        Emirates ID (optional)
-        <input name="emirates_id" type="file" accept=".jpg,.png,.pdf" />
-      </label>
-      <label>
-        Additional message
-        <textarea name="message" rows="3"></textarea>
-      </label>
-
+      <label>Full name<input name="name" required /></label>
+      <label>WhatsApp / Phone<input name="phone" required /></label>
+      <label>Monthly Salary (AED)<input name="salary" type="number" required /></label>
+      <label>Company<input name="company" /></label>
+      <label>Emirates ID (optional)<input name="emirates_id" type="file" accept=".jpg,.png,.pdf" /></label>
+      <label>Additional message<textarea name="message" rows="3"></textarea></label>
       <div class="form-actions">
         <button type="submit" class="btn btn-primary">Get Free Review</button>
         <button type="reset" class="btn btn-outline">Reset</button>
       </div>
-
       <div id="form-feedback" role="status" aria-live="polite"></div>
     </form>
   </section>
-  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -246,4 +206,4 @@
 
   <script src="script.js"></script>
 </body>
-</html>
+            </html>
