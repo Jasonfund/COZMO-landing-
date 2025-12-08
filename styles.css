@@ -1,226 +1,442 @@
-/* General */
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Inter, sans-serif;
-    background: #ffffff;
-    color: #111;
+  font-family: "Inter", sans-serif;
+  background: #ffffff;
+  color: #111215;
+  line-height: 1.5;
 }
 
-h1, h2, h3 { color: #111; }
-a { color: #E31B23; text-decoration: none; }
-
-/* GLASS EFFECT */
-.glass-box {
-    backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.4);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+a {
+  text-decoration: none;
+  color: #E31B23;
 }
 
-/* HEADER */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 20;
-    backdrop-filter: blur(10px);
-    background: rgba(255,255,255,0.5);
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+img {
+  max-width: 100%;
+}
+
+/* Red brand color */
+.cozmo-red {
+  color: #E31B23;
+}
+
+/* =========================================================
+   GLASS HEADER
+   ========================================================= */
+
+#main-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
+  font-weight: 800;
+  font-size: 24px;
+  color: #111;
+  letter-spacing: 1px;
 }
 
-.nav-links a {
-    margin-left: 20px;
-    font-size: 14px;
+.desktop-nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
-.cta-btn {
-    padding: 8px 16px;
-    background: #E31B23;
-    border-radius: 6px;
-    color: #fff;
+.desktop-nav a {
+  font-weight: 500;
+  font-size: 15px;
 }
 
-/* Hide CTA on mobile */
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 40px;
+  background: #E31B23;
+  color: #fff;
+}
+
+/* Hide on mobile */
 @media (max-width: 800px) {
-    .desktop-only {
-        display: none !important;
-    }
-}
-
-/* Mobile hamburger */
-#hamburger {
-    font-size: 26px;
-    cursor: pointer;
+  .desktop-nav {
     display: none;
+  }
 }
 
+/* =========================================================
+   HAMBURGER (mobile)
+   ========================================================= */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 27px;
+  height: 3px;
+  background: #111;
+  border-radius: 3px;
+}
+
+@media (max-width: 800px) {
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* MOBILE MENU GLASS */
 .mobile-menu {
-    display: none;
-    flex-direction: column;
-    padding: 20px;
-    position: fixed;
-    top: 70px;
-    width: 90%;
-    margin-left: 5%;
-    z-index: 100;
+  display: none;
+  flex-direction: column;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 20px;
+  text-align: center;
 }
 
 .mobile-menu a {
-    padding: 10px 0;
+  display: block;
+  padding: 12px 0;
+  font-size: 17px;
+  color: #E31B23;
+  font-weight: 600;
 }
 
-@media (max-width: 800px) {
-    #hamburger { display: block; }
-    .nav-links { display: none; }
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  padding: 160px 20px 90px;
+  text-align: center;
+  max-width: 750px;
+  margin: auto;
 }
 
-/* HERO */
-#hero {
-    padding-top: 140px;
-    text-align: center;
-    padding: 140px 20px 60px;
+.zero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 30px;
+  border: 1px solid #E31B23;
+  box-shadow: 0px 4px 18px rgba(0,0,0,0.08);
+  font-size: 12px;
+  font-weight: 600;
+  color: #E31B23;
 }
 
-.hero-ctas a {
-    margin: 10px;
+.zero-badge img {
+  width: 15px;
+}
+
+.hero h1 {
+  font-size: 38px;
+  font-weight: 800;
+  margin-top: 20px;
+  margin-bottom: 14px;
+}
+
+.subtext {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .primary-btn {
-    background: #E31B23;
-    padding: 12px 30px;
-    color: #fff;
-    border-radius: 8px;
+  background: #E31B23;
+  color: #fff;
+  padding: 13px 25px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  box-shadow: 0px 6px 20px rgba(227, 27, 35, 0.3);
+}
+
+.primary-btn img {
+  width: 15px;
 }
 
 .secondary-btn {
-    padding: 12px 30px;
-    border: 1px solid #E31B23;
-    border-radius: 8px;
+  padding: 12px 25px;
+  border-radius: 40px;
+  border: 1px solid #E31B23;
+  color: #E31B23;
+  font-weight: 600;
 }
 
-/* TRUST BAR */
-#trust {
-    text-align: center;
-    padding: 50px 20px;
+.whatsapp-line {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.whatsapp-line img {
+  width: 15px;
+}
+
+/* =========================================================
+   TRUST SECTION
+   ========================================================= */
+
+.trust {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.trust h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.trust-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0px 5px 18px rgba(0,0,0,0.08);
+  max-width: 700px;
+  margin: auto;
 }
 
 .banks-img {
-    width: 250px;
-    margin-top: 15px;
-    filter: drop-shadow(0 5px 20px rgba(0,0,0,0.15));
+  width: 100%;
 }
 
-/* CARDS */
-.card-grid {
-    max-width: 1100px;
-    margin: auto;
-    padding: 30px 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    grid-gap: 20px;
+/* =========================================================
+   STEPS (shadow boxes)
+   ========================================================= */
+
+.steps {
+  padding: 60px 20px;
+  text-align: center;
 }
 
-.card {
-    border: 1px solid #E31B23;
-    padding: 20px;
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+.steps h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
 }
 
-.border-link {
-    display: inline-block;
-    padding: 6px 14px;
-    border: 1px solid #E31B23;
-    border-radius: 15px;
-    margin-top: 10px;
+.steps-sub {
+  opacity: 0.7;
+  margin-bottom: 35px;
 }
 
-/* SUCCESS STORIES */
+.step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.step-box {
+  background: #fff;
+  border: 1px solid #E31B23;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.07);
+  text-align: center;
+}
+
+.step-box img {
+  width: 55px;
+  margin-bottom: 15px;
+}
+
+.step-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 18px;
+  border: 1px solid #E31B23;
+  border-radius: 30px;
+  font-size: 14px;
+  color: #E31B23;
+  font-weight: 600;
+}
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.services {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 26px;
+  margin-bottom: 35px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.service-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #E31B23;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.07);
+}
+
+.service-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1px solid #E31B23;
+  font-size: 14px;
+  font-weight: 600;
+  color: #E31B23;
+}
+
+/* =========================================================
+   CALCULATOR (Glass + sliders + meter)
+   ========================================================= */
+
+.calculator {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.calc-panel {
+  margin: auto;
+  max-width: 500px;
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0px 12px 30px rgba(0,0,0,0.12);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.calc-panel label {
+  display: block;
+  font-weight: 600;
+  margin-top: 25px;
+  text-align: left;
+}
+
+input[type=range] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* METER CIRCLE */
+.meter-box {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meter-inner {
+  width: 160px;
+  height: 80px;
+  border-top-left-radius: 160px;
+  border-top-right-radius: 160px;
+  border: 6px solid #ccc;
+  border-bottom: none;
+  position: relative;
+}
+
+.needle {
+  width: 2px;
+  height: 65px;
+  background: #E31B23;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: bottom;
+  transform: rotate(0deg);
+}
+
+.meter-text {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   CASES
+   ========================================================= */
+
+.cases {
+  padding: 60px 20px;
+  text-align: center;
+}
+
 .case-grid {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 25px;
 }
 
-.case {
-    padding: 20px;
-    margin: 10px 0;
-    border-left: 4px solid #E31B23;
-    background: #f8f8f8;
-    border-radius: 8px;
+.case-box {
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #E31B23;
+  background: #fff;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.06);
 }
 
-/* CALCULATOR */
-.calculator-box input[type=range] {
-    width: 100%;
-    margin: 15px 0;
-}
+/* =========================================================
+   FOOTER (GLASS)
+   ========================================================= */
 
-.meter {
-    width: 100%;
-    height: 12px;
-    background: rgba(0,0,0,0.1);
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-#meterFill {
-    height: 100%;
-    width: 0%;
-    background: #E31B23;
-    border-radius: 8px;
-    transition: 0.4s;
-}
-
-#dbrResult {
-    font-size: 20px;
-    margin-top: 10px;
-    text-align: center;
-}
-
-/* CONTACT FORM */
-.contact-form {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    margin: 10px 0;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-.contact-form button {
-    width: 100%;
-    padding: 12px;
-    background: #E31B23;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 40px;
-    margin-top: 60px;
-    background: rgba(255,255,255,0.4);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(255,255,255,0.3);
-        }
+.footer {
+  margin-top: 60px;
+  padding: 40px 20px;
+  text-align: center;
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,0.4);
+  border-top: 1px solid rgba(255,255,255,0.5);
+                                }
