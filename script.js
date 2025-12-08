@@ -1,60 +1,47 @@
-/** -----------------------------
- *  GLASS HEADER ON SCROLL
- * ------------------------------*/
-const header = document.querySelector("header");
+// === MOBILE HAMBURGER ===
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 40) {
-    header.classList.add("glass-active");
-  } else {
-    header.classList.remove("glass-active");
-  }
+hamburger.addEventListener('click', () => {
+  navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
 });
 
+// === CALCULATOR ===
+const salarySlider = document.getElementById('salary-slider');
+const liabilitiesSlider = document.getElementById('liabilities-slider');
+const obligationsSlider = document.getElementById('obligations-slider');
 
-/** -----------------------------
- *  MOBILE MENU TOGGLE
- * ------------------------------*/
-const menuBtn = document.querySelector(".menu-btn");
-const mobileMenu = document.querySelector(".mobile-menu");
+const salaryValue = document.getElementById('salary-value');
+const liabilitiesValue = document.getElementById('liabilities-value');
+const obligationsValue = document.getElementById('obligations-value');
 
-if (menuBtn) {
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("open");
-    menuBtn.classList.toggle("open");
-  });
-}
-
-
-/** -----------------------------
- *  INTERACTIVE CALCULATOR
- * ------------------------------*/
-
-const amountSlider = document.getElementById("amountRange");
-const percentageSlider = document.getElementById("percentageRange");
-const amountOutput = document.getElementById("amountValue");
-const percentOutput = document.getElementById("percentValue");
-const resultBar = document.getElementById("resultBar");
-const resultNumber = document.getElementById("resultNumber");
+const calcText = document.getElementById('calc-text');
+const needle = document.getElementById('needle');
 
 function updateCalculator() {
-  const amount = parseInt(amountSlider.value);
-  const percentage = parseInt(percentageSlider.value);
+  const salary = parseInt(salarySlider.value);
+  const liabilities = parseInt(liabilitiesSlider.value);
+  const obligations = parseInt(obligationsSlider.value);
 
-  amountOutput.innerText = amount.toLocaleString();
-  percentOutput.innerText = percentage + "%";
+  salaryValue.textContent = salary;
+  liabilitiesValue.textContent = liabilities;
+  obligationsValue.textContent = obligations;
 
-  const result = Math.round((amount * percentage) / 100);
+  // DBR calculation: (Liabilities + Obligations) / Salary * 100
+  let dbr = ((liabilities + obligations) / salary) * 100;
+  if (dbr > 100) dbr = 100;
 
-  resultNumber.innerText = result.toLocaleString();
+  const approval = dbr <= 50 ? "Yes" : "Maybe";
 
-  // Animate meter bar
-  const maxWidth = 100; // full width percent
-  resultBar.style.width = percentage + "%"; 
+  calcText.textContent = `Estimated DBR: ${dbr.toFixed(1)}% · Likely Approval: ${approval}`;
+
+  // Animate needle
+  needle.style.width = `${dbr}%`;
 }
 
-amountSlider.addEventListener("input", updateCalculator);
-percentageSlider.addEventListener("input", updateCalculator);
+salarySlider.addEventListener('input', updateCalculator);
+liabilitiesSlider.addEventListener('input', updateCalculator);
+obligationsSlider.addEventListener('input', updateCalculator);
 
-// Initialize calculator with default values
+// initialize
 updateCalculator();
