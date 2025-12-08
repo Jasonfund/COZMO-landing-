@@ -1,186 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COZMO FINANCIAL CONSULTING</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COZMO FINANCIAL CONSULTING</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header id="header">
+<!-- ========================================================= -->
+<!-- HEADER (Glass Effect + Mobile Hamburger)                  -->
+<!-- ========================================================= -->
+
+<header id="main-header">
+  <div class="header-inner">
     <div class="logo">COZMO</div>
 
-    <nav class="nav-links">
-        <a href="#how">How It Works</a>
-        <a href="#services">Services</a>
-        <a href="#cases">Success Stories</a>
-        <a href="#calculator">Calculator</a>
-        <a href="#contact" class="cta-btn desktop-only">Get Free Review</a>
+    <nav class="desktop-nav">
+      <a href="#services">Services</a>
+      <a href="#steps">How It Works</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#contact" class="nav-btn">Get Review</a>
     </nav>
 
-    <!-- Mobile Hamburger -->
-    <div id="hamburger" class="mobile-only">☰</div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#services">Services</a>
+    <a href="#steps">How It Works</a>
+    <a href="#calculator">Calculator</a>
+    <a href="#contact">Get Review</a>
+  </div>
 </header>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="mobile-menu glass-box">
-    <a href="#how">How It Works</a>
-    <a href="#services">Services</a>
-    <a href="#cases">Success Stories</a>
-    <a href="#calculator">Calculator</a>
-    <a href="#contact">Get Free Review</a>
-</div>
+<!-- ========================================================= -->
+<!-- HERO SECTION                                              -->
+<!-- ========================================================= -->
 
-<!-- HERO -->
-<section id="hero">
-    <h1>Get the loan you deserve — smarter, faster, safer.</h1>
-    <p>Cozmo Financial Consulting — channel partners to top UAE banks. Free profile review & end-to-end support.</p>
+<section class="hero">
+  <div class="zero-badge">
+    <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" />
+    ZERO FEES — YOU PAY NOTHING
+  </div>
 
-    <div class="hero-ctas">
-        <a href="#contact" class="primary-btn">Get My Free Review</a>
-        <a href="#services" class="secondary-btn">See Services</a>
+  <h1>Get the loan you deserve — smarter, faster, safer.</h1>
+
+  <p class="subtext">
+    <span class="cozmo-red">COZMO FINANCIAL CONSULTING</span> — Channel partners to UAE banks.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#contact" class="primary-btn">
+      Get My Free Review
+      <img src="https://cdn-icons-png.flaticon.com/512/545/545682.png">
+    </a>
+
+    <a href="#services" class="secondary-btn">See Services</a>
+  </div>
+
+  <div class="whatsapp-line">
+    <img src="https://cdn-icons-png.flaticon.com/512/4423/4423697.png">
+    WhatsApp support available
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- TRUST SECTION                                             -->
+<!-- ========================================================= -->
+
+<section class="trust">
+  <h2>Trusted channel partners to leading UAE banks — ★★★★★</h2>
+
+  <div class="trust-card">
+    <img src="assets/banks.png" class="banks-img">
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- HOW IT WORKS                                              -->
+<!-- ========================================================= -->
+
+<section class="steps" id="steps">
+  <h2>How It Works</h2>
+  <p class="steps-sub">Simple 3-step approval process</p>
+
+  <div class="step-grid">
+    <div class="step-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/778/778147.png">
+      <h3>Profile Review</h3>
+      <p>We analyse your eligibility instantly.</p>
+      <a href="#contact" class="step-link">Start Review</a>
     </div>
 
-    <small>No fees. WhatsApp support available.</small>
-</section>
-
-<!-- TRUST BAR -->
-<section id="trust">
-    <p class="trust-title">Trusted channel partners to leading UAE banks — ★★★★★</p>
-    <img src="assets/banks.png" alt="UAE Banks" class="banks-img" />
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="how">
-    <h2>How It Works</h2>
-
-    <div class="card-grid">
-        <div class="card">
-            <h3>1. Profile Review</h3>
-            <p>We analyze your eligibility and documents.</p>
-            <a href="#contact" class="border-link">Start Step 1</a>
-        </div>
-
-        <div class="card">
-            <h3>2. Bank Match</h3>
-            <p>We select the best bank for your profile.</p>
-            <a href="#contact" class="border-link">Start Step 1</a>
-        </div>
-
-        <div class="card">
-            <h3>3. Approval Support</h3>
-            <p>We support your case until approval.</p>
-            <a href="#contact" class="border-link">Start Step 1</a>
-        </div>
-    </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-    <h2>Services</h2>
-
-    <div class="card-grid">
-        <div class="card">
-            <h3>Personal Loan Assistance</h3>
-            <p>Highest approval path, fastest processing.</p>
-            <a href="#contact" class="border-link">Learn More</a>
-        </div>
-
-        <div class="card">
-            <h3>Credit Card Approvals</h3>
-            <p>Premium cards, higher limits, better rewards.</p>
-            <a href="#contact" class="border-link">Learn More</a>
-        </div>
-
-        <div class="card">
-            <h3>Car / Auto Finance</h3>
-            <p>New & used vehicles, self-employed friendly.</p>
-            <a href="#contact" class="border-link">Learn More</a>
-        </div>
-
-        <div class="card">
-            <h3>Home Loan Advisory</h3>
-            <p>Mortgage pre-checks and bank comparisons.</p>
-            <a href="#contact" class="border-link">Learn More</a>
-        </div>
-
-        <div class="card">
-            <h3>Business & SME Finance</h3>
-            <p>Working capital, equipment finance.</p>
-            <a href="#contact" class="border-link">Learn More</a>
-        </div>
-
-        <div class="card">
-            <h3>Debt Restructuring</h3>
-            <p>Consolidate & reduce monthly payments.</p>
-            <a href="#contact" class="border-link">Learn More</a>
-        </div>
-    </div>
-</section>
-
-<!-- SUCCESS STORIES -->
-<section id="cases">
-    <h2>Success Stories</h2>
-
-    <div class="case-grid">
-        <div class="case">
-            <h3>Rahul Sharma — IT Manager</h3>
-            <p>Approved: AED 80,000 Credit Card — 48 hours</p>
-        </div>
-
-        <div class="case">
-            <h3>Ana Liu — Marketing Lead</h3>
-            <p>Approved: AED 150,000 Personal Loan — 72 hours</p>
-        </div>
-
-        <div class="case">
-            <h3>Mark Tan — Business Owner</h3>
-            <p>Approved: SME Finance AED 300,000 — 1 week</p>
-        </div>
-    </div>
-</section>
-
-<!-- CALCULATOR -->
-<section id="calculator">
-    <h2>Eligibility Calculator</h2>
-
-    <div class="glass-box calculator-box">
-        <label>Salary (AED):</label>
-        <input type="range" id="salary" min="3000" max="40000" value="8000" />
-
-        <label>Monthly Liabilities (AED):</label>
-        <input type="range" id="liabilities" min="0" max="15000" value="2000" />
-
-        <div class="meter">
-            <div id="meterFill"></div>
-        </div>
-
-        <p id="dbrResult">DBR: --%</p>
+    <div class="step-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png">
+      <h3>Bank Match</h3>
+      <p>We match you to the right bank.</p>
+      <a href="#contact" class="step-link">Start Review</a>
     </div>
 
+    <div class="step-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/2985/2985150.png">
+      <h3>Approval Support</h3>
+      <p>We guide you from start to finish.</p>
+      <a href="#contact" class="step-link">Start Review</a>
+    </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Get Your Free Review</h2>
+<!-- ========================================================= -->
+<!-- SERVICES                                                  -->
+<!-- ========================================================= -->
 
-    <form class="contact-form">
-        <input type="text" placeholder="Name" />
-        <input type="text" placeholder="WhatsApp Number" />
-        <input type="text" placeholder="Company" />
-        <textarea placeholder="Message"></textarea>
-        <button type="submit">Submit</button>
-    </form>
+<section class="services" id="services">
+  <h2>Services</h2>
+
+  <div class="service-grid">
+
+    <div class="service-box">
+      <h3>Personal Loan Assistance</h3>
+      <p>Fastest approval options.</p>
+      <a href="#contact" class="service-link">Start Review</a>
+    </div>
+
+    <div class="service-box">
+      <h3>Credit Card Approvals</h3>
+      <p>Premium cards — higher limits.</p>
+      <a href="#contact" class="service-link">Start Review</a>
+    </div>
+
+    <div class="service-box">
+      <h3>Car Loan / Auto Finance</h3>
+      <p>New & used vehicles.</p>
+      <a href="#contact" class="service-link">Start Review</a>
+    </div>
+
+    <div class="service-box">
+      <h3>Home Loan Advisory</h3>
+      <p>Mortgage pre-checks.</p>
+      <a href="#contact" class="service-link">Start Review</a>
+    </div>
+
+    <div class="service-box">
+      <h3>Business & SME Finance</h3>
+      <p>Working capital & more.</p>
+      <a href="#contact" class="service-link">Start Review</a>
+    </div>
+
+    <div class="service-box">
+      <h3>Debt Restructuring</h3>
+      <p>Lower monthly payments.</p>
+      <a href="#contact" class="service-link">Start Review</a>
+    </div>
+
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-    <p>info@cozmofc.com</p>
-    <p>© 2020 COZMO FINANCIAL CONSULTING</p>
+<!-- ========================================================= -->
+<!-- CALCULATOR (Glass Panel + Sliders + Meter)                -->
+<!-- ========================================================= -->
+
+<section class="calculator" id="calculator">
+  <h2>DBR Calculator</h2>
+
+  <div class="calc-panel">
+
+    <label>Salary: AED <span id="salary-val">8000</span></label>
+    <input type="range" id="salary" min="2000" max="30000" value="8000"/>
+
+    <label>Liabilities: AED <span id="debt-val">0</span></label>
+    <input type="range" id="debt" min="0" max="20000" value="0"/>
+
+    <div class="meter-box">
+      <div class="meter-inner">
+        <div class="needle" id="needle"></div>
+      </div>
+      <p class="meter-text">DBR: <span id="dbr-val">0%</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- SUCCESS STORIES                                            -->
+<!-- ========================================================= -->
+
+<section class="cases" id="cases">
+  <h2>Success Stories</h2>
+
+  <div class="case-grid">
+    <div class="case-box">
+      <h3>Rahul — IT Specialist</h3>
+      <p>Approved AED 80,000 Credit Card</p>
+    </div>
+
+    <div class="case-box">
+      <h3>Mei Ling — Accountant</h3>
+      <p>Personal Loan Approved in 48hrs</p>
+    </div>
+
+    <div class="case-box">
+      <h3>Arjun — Logistics Manager</h3>
+      <p>Car Loan with 0% Processing Fee</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- FOOTER (GLASS EFFECT)                                     -->
+<!-- ========================================================= -->
+
+<footer class="footer" id="contact">
+  <p>info@cozmofc.com</p>
+  <p>© 2020 COZMO FINANCIAL CONSULTING</p>
 </footer>
 
 <script src="script.js"></script>
 </body>
-</html>
+                                                            </html>
