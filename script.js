@@ -1,33 +1,60 @@
-// Mobile menu
-const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobileMenu");
+/** -----------------------------
+ *  GLASS HEADER ON SCROLL
+ * ------------------------------*/
+const header = document.querySelector("header");
 
-hamburger.addEventListener("click", () => {
-    mobileMenu.style.display =
-        mobileMenu.style.display === "flex" ? "none" : "flex";
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 40) {
+    header.classList.add("glass-active");
+  } else {
+    header.classList.remove("glass-active");
+  }
 });
 
 
-// DBR CALCULATOR
-const salary = document.getElementById("salary");
-const liabilities = document.getElementById("liabilities");
-const meterFill = document.getElementById("meterFill");
-const dbrResult = document.getElementById("dbrResult");
+/** -----------------------------
+ *  MOBILE MENU TOGGLE
+ * ------------------------------*/
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
 
-function updateDBR() {
-    let sal = Number(salary.value);
-    let lib = Number(liabilities.value);
-
-    let dbr = Math.round((lib / sal) * 100);
-
-    if (dbr > 100) dbr = 100;
-    if (dbr < 0) dbr = 0;
-
-    meterFill.style.width = dbr + "%";
-    dbrResult.textContent = "DBR: " + dbr + "%";
+if (menuBtn) {
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+    menuBtn.classList.toggle("open");
+  });
 }
 
-salary.oninput = updateDBR;
-liabilities.oninput = updateDBR;
 
-updateDBR();
+/** -----------------------------
+ *  INTERACTIVE CALCULATOR
+ * ------------------------------*/
+
+const amountSlider = document.getElementById("amountRange");
+const percentageSlider = document.getElementById("percentageRange");
+const amountOutput = document.getElementById("amountValue");
+const percentOutput = document.getElementById("percentValue");
+const resultBar = document.getElementById("resultBar");
+const resultNumber = document.getElementById("resultNumber");
+
+function updateCalculator() {
+  const amount = parseInt(amountSlider.value);
+  const percentage = parseInt(percentageSlider.value);
+
+  amountOutput.innerText = amount.toLocaleString();
+  percentOutput.innerText = percentage + "%";
+
+  const result = Math.round((amount * percentage) / 100);
+
+  resultNumber.innerText = result.toLocaleString();
+
+  // Animate meter bar
+  const maxWidth = 100; // full width percent
+  resultBar.style.width = percentage + "%"; 
+}
+
+amountSlider.addEventListener("input", updateCalculator);
+percentageSlider.addEventListener("input", updateCalculator);
+
+// Initialize calculator with default values
+updateCalculator();
